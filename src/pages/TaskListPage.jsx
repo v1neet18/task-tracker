@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import TaskCard from "../components/TaskCard";
 import TaskCardAI from "../components/TaskCardAI";
+import { Link } from "react-router-dom";
 
 export const tasks = [
   {
@@ -141,24 +142,30 @@ function TaskListPage() {
       </div>
       <div className="w-full bg-blue-300 grid grid-cols-[repeat(auto-fit,minmax(350px,1fr))] gap-4">
         {filteredTasks.map((task) => (
-          <TaskCard
+
+          <Link
             key={task.id}
-            tags={task.tags}
-            title={task.title}
-            description={task.description}
-            priority={task.priority}
-            status={task.status}
-            dueDate={new Date(task.dueDate).toLocaleDateString("en-US", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })}
-            createdAt={new Date(task.createdAt).toLocaleDateString("en-US", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })}
-          />
+            to={`${task.id}`}
+          >
+            <TaskCard
+              tags={task.tags}
+              title={task.title}
+              description={task.description}
+              priority={task.priority}
+              status={task.status}
+              dueDate={new Date(task.dueDate).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
+              createdAt={new Date(task.createdAt).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
+            />
+
+          </Link>
         ))}
       </div>
     </div>

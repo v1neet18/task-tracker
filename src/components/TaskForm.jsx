@@ -1,18 +1,27 @@
 import React, { useState } from "react";
 import { tasks } from "../pages/TaskListPage";
+import { useNavigate } from "react-router-dom";
 
 function TaskForm() {
+
+  const navigate = useNavigate();
+
   function handleSubmit(e) {
     e.preventDefault();
     // let date = new Date();
     const formData = {
+      id: Date.now().toString(),
       title,
       description,
       priority,
       status,
       dueDate,
-      createdAt: new Date().toISOString()
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString()
     }
+
+    tasks.push(formData);
+    console.log(tasks);
 
     console.log(formData);
 
@@ -21,6 +30,8 @@ function TaskForm() {
     setPriority("high");
     setStutus("todo");
     setDueDate("");
+
+    navigate("/tasks");
   }
 
   const [title, setTitle] = useState("");
