@@ -1,11 +1,14 @@
 import { MoveLeft } from 'lucide-react'
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import { tasks } from './TaskListPage';
+// import { dummyTasks } from './TaskListPage';
+import useTask from '../context/TaskContext';
 
 function TaskDetailsPage() {
 
   const { id } = useParams();
+
+  const { tasks } = useTask();
 
   const task = tasks.find((task) => task.id === id);
 

@@ -8,6 +8,7 @@ import CreateTaskPage from './pages/CreateTaskPage.jsx'
 import Layout from './Layout.jsx'
 import DashboardPage from './pages/DashboardPage.jsx'
 import TaskDetailsPage from './pages/TaskDetailsPage.jsx'
+import TaskProviderWrapper from './components/TaskProviderWrapper.jsx'
 // import { Layout } from 'lucide-react'
 
 const router = createBrowserRouter(
@@ -24,6 +25,8 @@ const router = createBrowserRouter(
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     {/* <App /> */}
-    <RouterProvider router={router} />
+    <TaskProviderWrapper>
+      <RouterProvider router={router} />
+    </TaskProviderWrapper>
   </StrictMode>,
 )

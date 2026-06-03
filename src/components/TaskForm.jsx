@@ -1,10 +1,15 @@
 import React, { useState } from "react";
-import { tasks } from "../pages/TaskListPage";
+// import { dummyTasks } from "../pages/TaskListPage";
 import { useNavigate } from "react-router-dom";
+import useTask from "../context/TaskContext";
 
 function TaskForm() {
 
   const navigate = useNavigate();
+
+  // getting addTask here from context;
+
+  const { addTask } = useTask();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -20,8 +25,10 @@ function TaskForm() {
       updatedAt: new Date().toISOString()
     }
 
-    tasks.push(formData);
-    console.log(tasks);
+    // dummyTasks.push(formData); do below thing in place of this 
+    addTask(formData);
+
+    // console.log(dummyTasks);
 
     console.log(formData);
 

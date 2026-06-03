@@ -1,8 +1,11 @@
 import React from "react";
 import DashBoxCard from "../components/DashBoxCard";
-import { tasks } from "./TaskListPage"
+// import { dummyTasks } from "./TaskListPage"
+import useTask from "../context/TaskContext";
 // import { AlertTriangle } from "lucide-react";
 function DashboardPage() {
+
+  const { tasks } = useTask();
   return (
     <>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4">

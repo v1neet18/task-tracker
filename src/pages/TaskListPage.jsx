@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import TaskCard from "../components/TaskCard";
 import TaskCardAI from "../components/TaskCardAI";
 import { Link } from "react-router-dom";
+import useTask from "../context/TaskContext";
 
-export const tasks = [
+export const dummyTasks = [
   {
     id: "task_001",
     title: "Revise React hooks",
@@ -95,6 +96,13 @@ export const tasks = [
 ];
 
 function TaskListPage() {
+
+  // const[tasks, setTasks] = useState(dummyTasks);
+
+  // now we are migrating to context from this dummy array concept
+
+  const { tasks } = useTask();
+
   const [input, setInput] = useState("");
   const [priority, setPriority] = useState("");
   const [status, setStatus] = useState("");
