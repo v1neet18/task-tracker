@@ -145,7 +145,7 @@ function TaskListPage() {
 
           <Link
             key={task.id}
-            to={`${task.id}`}
+            to={`/tasks/${task.id}`}
           >
             <TaskCard
               tags={task.tags}

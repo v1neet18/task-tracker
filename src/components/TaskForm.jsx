@@ -28,7 +28,7 @@ function TaskForm() {
     setTitle("");
     setDescription("");
     setPriority("high");
-    setStutus("todo");
+    setStatus("todo");
     setDueDate("");
 
     navigate("/tasks");
@@ -37,7 +37,7 @@ function TaskForm() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [priority, setPriority] = useState("high");
-  const [status, setStutus] = useState("todo");
+  const [status, setStatus] = useState("todo");
   const [dueDate, setDueDate] = useState("");
 
   return (
@@ -109,7 +109,7 @@ function TaskForm() {
 
             <select
               value={status}
-              onChange={(e) => e.target.value}
+              onChange={(e) => setStatus(e.target.value)}
               id="status"
               // defaultValue="todo"
               className="w-full rounded-xl border border-gray-300 bg-white px-4 py-2 text-sm outline-none transition-all duration-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
